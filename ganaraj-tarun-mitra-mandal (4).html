@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Ganaraj Tarun Mitra Mandal | Ganpati Bappa Donation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --maroon:#7A1F2B;
+    --maroon-dark:#4A0F18;
+    --saffron:#E8871E;
+    --saffron-light:#FBB040;
+    --gold:#C9A227;
+    --cream:#FFF6E6;
+    --cream-2:#FFEBCB;
+    --green:#1F5C4A;
+    --ink:#2E140F;
+    --ink-soft:#6B4A3D;
+    --shadow: 0 10px 30px rgba(74,15,24,0.18);
+    --radius: 18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Poppins',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  /* subtle mandala watermark */
+  .bg-mandala{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image: radial-gradient(circle at 12% 8%, rgba(232,135,30,0.10), transparent 40%),
+                       radial-gradient(circle at 88% 15%, rgba(31,92,74,0.08), transparent 38%),
+                       radial-gradient(circle at 50% 95%, rgba(201,162,39,0.10), transparent 45%);
+  }
+
+  /* ===== Marigold toran (garland) — signature element ===== */
+  .toran{
+    position:relative;
+    height:64px;
+    background:var(--maroon-dark);
+    overflow:hidden;
+  }
+  .toran-string{
+    position:absolute; top:0; left:0; right:0; height:2px; background:rgba(255,214,140,0.5);
+  }
+  .toran-row{
+    display:flex; justify-content:space-evenly; align-items:flex-start; padding-top:6px;
+  }
+  .marigold{
+    width:26px; height:26px; margin-top:2px;
+    animation: sway 3.4s ease-in-out infinite;
+    transform-origin: top center;
+    flex:0 0 auto;
+  }
+  .marigold:nth-child(odd){ animation-delay:-1.2s; }
+  .marigold:nth-child(3n){ animation-delay:-2.1s; }
+  @keyframes sway{
+    0%,100%{ transform: rotate(-4deg); }
+    50%{ transform: rotate(4deg); }
+  }
+  .leaf{ width:16px; height:16px; margin-top:8px; opacity:0.9; animation: sway 3.4s ease-in-out infinite; transform-origin:top center;}
+
+  /* ===== Header ===== */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:linear-gradient(180deg, var(--maroon) 0%, #6d1c27 100%);
+    color:#FFF1DC;
+    box-shadow:0 4px 18px rgba(0,0,0,0.15);
+  }
+  .nav{
+    max-width:1080px; margin:0 auto; padding:12px 20px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; min-width:0; }
+  .om-badge{
+    width:38px; height:38px; border-radius:50%;
+    background:radial-gradient(circle, var(--gold) 0%, #a9821e 100%);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Noto Sans Devanagari', serif; font-size:20px; color:var(--maroon-dark);
+    flex:0 0 auto;
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.35);
+  }
+  .brand-text{ line-height:1.15; min-width:0; }
+  .brand-text .name{
+    font-family:'Baloo 2', sans-serif; font-weight:700; font-size:15px;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .brand-text .tag{ font-size:11px; color:#F3C77E; letter-spacing:0.04em; }
+  .nav-cta{
+    background:var(--saffron); color:var(--maroon-dark); border:none;
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:14px;
+    padding:9px 18px; border-radius:999px; cursor:pointer; white-space:nowrap;
+    box-shadow:0 4px 12px rgba(232,135,30,0.4);
+    text-decoration:none; display:inline-block;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .nav-cta:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(232,135,30,0.55); }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative; z-index:1;
+    max-width:1080px; margin:0 auto;
+    padding:54px 20px 40px;
+    text-align:center;
+  }
+  .hero-glow{
+    position:absolute; top:10%; left:50%; transform:translateX(-50%);
+    width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle, rgba(255,196,90,0.5) 0%, rgba(255,196,90,0) 70%);
+    z-index:-1; filter:blur(2px);
+    animation: glow-pulse 4s ease-in-out infinite;
+  }
+  @keyframes glow-pulse{ 0%,100%{opacity:0.7;} 50%{opacity:1;} }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Baloo 2',sans-serif; font-weight:600; font-size:13px;
+    color:var(--maroon); background:var(--cream-2);
+    padding:6px 16px; border-radius:999px; letter-spacing:0.03em;
+    border:1px solid rgba(122,31,43,0.15);
+  }
+  .hero h1{
+    font-family:'Rozha One', serif; font-weight:400;
+    font-size:clamp(34px, 6vw, 58px);
+    color:var(--maroon-dark);
+    margin:18px 0 6px; line-height:1.08;
+  }
+  .hero .devnagari{
+    font-family:'Noto Sans Devanagari', serif; font-size:clamp(20px,3vw,28px);
+    color:var(--saffron); font-weight:700; display:block; margin-bottom:14px;
+  }
+  .hero p.lede{
+    max-width:560px; margin:0 auto; color:var(--ink-soft);
+    font-size:16px; line-height:1.65;
+  }
+  .hero-actions{
+    margin-top:30px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
+  }
+  .btn-primary{
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:17px;
+    background:linear-gradient(135deg, var(--saffron) 0%, #d9700f 100%);
+    color:#fff9ee; border:none; padding:16px 34px; border-radius:999px;
+    cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:10px;
+    box-shadow:0 10px 24px rgba(217,112,15,0.45);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary:hover{ transform:translateY(-2px) scale(1.01); box-shadow:0 14px 30px rgba(217,112,15,0.55); }
+  .btn-ghost{
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:15px;
+    background:transparent; color:var(--maroon); border:2px solid var(--maroon);
+    padding:13px 26px; border-radius:999px; cursor:pointer; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:background .15s ease, color .15s ease;
+  }
+  .btn-ghost:hover{ background:var(--maroon); color:#fff6e6; }
+
+  /* ===== Modak/diya divider illustration ===== */
+  .divider{
+    display:flex; align-items:center; justify-content:center; gap:16px;
+    margin:8px auto 0; opacity:0.85;
+  }
+  .divider .line{ height:1px; width:60px; background:linear-gradient(90deg, transparent, var(--gold), transparent); }
+
+  /* ===== Section shell ===== */
+  section{ position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:64px 20px; }
+  .section-head{ text-align:center; max-width:620px; margin:0 auto 40px; }
+  .section-head .kicker{
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:13px; color:var(--green);
+    text-transform:uppercase; letter-spacing:0.08em;
+  }
+  .section-head h2{
+    font-family:'Rozha One',serif; font-weight:400; color:var(--maroon-dark);
+    font-size:clamp(26px,4vw,38px); margin:8px 0 10px;
+  }
+  .section-head p{ color:var(--ink-soft); font-size:15px; line-height:1.6; }
+
+  /* ===== Why donate cards ===== */
+  .cards{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  @media (max-width:900px){ .cards{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .cards{ grid-template-columns:1fr;} }
+  .card{
+    background:#fff; border-radius:var(--radius); padding:26px 20px;
+    box-shadow:var(--shadow); text-align:center;
+    border-top:4px solid var(--saffron);
+    transition:transform .2s ease;
+  }
+  .card:hover{ transform:translateY(-4px); }
+  .card .icon{
+    width:54px; height:54px; margin:0 auto 14px; border-radius:50%;
+    background:var(--cream-2); display:flex; align-items:center; justify-content:center;
+    font-size:26px;
+  }
+  .card h3{ font-family:'Baloo 2',sans-serif; font-size:17px; color:var(--maroon-dark); margin:0 0 8px; }
+  .card p{ font-size:13.5px; color:var(--ink-soft); line-height:1.55; margin:0; }
+
+  /* ===== Donate section ===== */
+  .donate-panel{
+    background:linear-gradient(160deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+    border-radius:28px; padding:44px 26px; color:#FFF3DE;
+    box-shadow:0 20px 50px rgba(74,15,24,0.35);
+    position:relative; overflow:hidden;
+  }
+  .donate-panel::before{
+    content:""; position:absolute; top:-60px; right:-60px; width:220px; height:220px;
+    background:radial-gradient(circle, rgba(232,135,30,0.35), transparent 70%);
+  }
+  .donate-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
+    position:relative; z-index:1;
+  }
+  @media (max-width:800px){ .donate-grid{ grid-template-columns:1fr; } }
+
+  .donate-panel h2{
+    font-family:'Rozha One',serif; font-weight:400; font-size:clamp(24px,3.4vw,32px);
+    margin:0 0 8px; color:#fff;
+  }
+  .donate-panel .sub{ color:#F3C77E; font-size:14px; margin-bottom:26px; }
+
+  .amount-label{ font-family:'Baloo 2',sans-serif; font-size:14px; font-weight:600; margin-bottom:10px; color:#FFE3B0; }
+  .amounts{
+    display:flex; flex-wrap:nowrap; gap:10px; margin-bottom:18px;
+    overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+    padding-bottom:2px;
+  }
+  .amounts::-webkit-scrollbar{ display:none; }
+  .amounts .chip{ flex:0 0 auto; }
+  .chip{
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:15px;
+    background:rgba(255,255,255,0.08); color:#FFF3DE;
+    border:1.5px solid rgba(255,255,255,0.25);
+    padding:10px 18px; border-radius:999px; cursor:pointer;
+    transition:all .15s ease;
+  }
+  .chip:hover{ border-color:var(--saffron); }
+  .chip.active{
+    background:var(--saffron); color:var(--maroon-dark); border-color:var(--saffron);
+    box-shadow:0 4px 14px rgba(232,135,30,0.5);
+  }
+  .custom-amount{
+    display:flex; align-items:center; gap:8px; margin-bottom:24px;
+    background:rgba(255,255,255,0.08); border:1.5px solid rgba(255,255,255,0.25);
+    border-radius:999px; padding:4px 4px 4px 18px; max-width:260px;
+  }
+  .custom-amount span{ font-family:'Baloo 2',sans-serif; font-weight:700; color:#FFE3B0; }
+  .custom-amount input{
+    flex:1; background:transparent; border:none; outline:none; color:#fff;
+    font-family:'Poppins',sans-serif; font-size:15px; padding:10px 4px; min-width:0;
+  }
+  .custom-amount input::placeholder{ color:rgba(255,243,222,0.55); }
+  .custom-amount button{
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:13px;
+    background:var(--gold); color:var(--maroon-dark); border:none;
+    padding:10px 16px; border-radius:999px; cursor:pointer; flex:0 0 auto;
+  }
+
+  .pay-buttons{ display:flex; flex-direction:column; gap:12px; max-width:340px; }
+  .pay-btn{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:16px;
+    padding:15px 20px; border-radius:14px; text-decoration:none; cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease; border:none;
+  }
+  .pay-gpay{ background:#fff; color:#3c1e05; box-shadow:0 8px 20px rgba(0,0,0,0.25); }
+  .pay-gpay:hover{ transform:translateY(-2px); }
+  .pay-upi{ background:transparent; color:#FFF3DE; border:2px solid rgba(255,255,255,0.4); }
+  .pay-upi:hover{ border-color:var(--saffron); background:rgba(255,255,255,0.06); }
+  .pay-note{ font-size:12px; color:rgba(255,243,222,0.65); margin-top:4px; line-height:1.5; }
+
+  .qr-card{
+    background:#fff; border-radius:20px; padding:22px; text-align:center;
+    box-shadow:0 16px 40px rgba(0,0,0,0.3);
+  }
+  .qr-card #qrcode{ display:flex; justify-content:center; margin:6px 0 14px; }
+  .qr-card #qrcode img, .qr-card #qrcode canvas{ border-radius:10px; }
+  .qr-card .upi-id-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:var(--cream-2); border-radius:10px; padding:10px 14px; margin-top:8px;
+  }
+  .qr-card .upi-id-row span{ font-family:monospace; font-size:13px; color:var(--maroon-dark); font-weight:700; word-break:break-all;}
+  .qr-card .upi-id-row button{
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:12px;
+    background:var(--maroon); color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer;
+    flex:0 0 auto;
+  }
+  .qr-card-primary #qrcode img, .qr-card-primary #qrcode canvas{ width:200px; height:200px; }
+  .qr-caption{
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:13px;
+    color:var(--maroon-dark); margin-top:12px; letter-spacing:0.01em;
+  }
+  .donate-single{ max-width:440px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+  .donate-single .amounts{ justify-content:flex-start; }
+  .donate-single .custom-amount{ margin-left:auto; margin-right:auto; }
+  .pay-buttons-centered{ margin:0 auto 26px; }
+  .iphone-note{
+    text-align:left; font-size:13px; line-height:1.6;
+    background:rgba(255,255,255,0.08); border:1px dashed var(--gold); border-radius:12px;
+    padding:14px 16px; color:#FFE9C2; margin-bottom:26px;
+  }
+  .qr-card-primary{ max-width:260px; margin:0 auto; }
+
+  /* ===== Trust strip ===== */
+  .trust{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:28px;
+    margin-top:34px; padding-top:30px; border-top:1px dashed rgba(255,255,255,0.25);
+  }
+  .trust-item{ display:flex; align-items:center; gap:10px; font-size:13px; color:#FFE3B0; max-width:230px; }
+  .trust-item .dot{
+    width:8px; height:8px; border-radius:50%; background:var(--saffron); flex:0 0 auto;
+  }
+
+  /* ===== Blessing / footer ===== */
+  .blessing{
+    text-align:center; padding:70px 20px 30px;
+  }
+  .blessing .om-large{
+    font-family:'Noto Sans Devanagari', serif; font-size:44px; color:var(--saffron);
+  }
+  .blessing h3{
+    font-family:'Rozha One',serif; font-weight:400; color:var(--maroon-dark);
+    font-size:clamp(22px,3vw,30px); margin:10px 0 6px;
+  }
+  .blessing p{ color:var(--ink-soft); font-size:14px; }
+
+  footer{
+    background:var(--maroon-dark); color:#EAC98E; text-align:center;
+    padding:26px 20px; font-size:12.5px; line-height:1.8;
+  }
+  footer strong{ color:#fff; font-family:'Baloo 2',sans-serif; }
+
+  .toast{
+    position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:var(--maroon-dark); color:#FFE3B0; padding:12px 22px; border-radius:999px;
+    font-family:'Baloo 2',sans-serif; font-weight:600; font-size:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+    opacity:0; pointer-events:none; transition:all .3s ease; z-index:100;
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="bg-mandala"></div>
+
+<!-- Marigold toran -->
+<div class="toran" aria-hidden="true">
+  <div class="toran-string"></div>
+  <div class="toran-row" id="toranRow"></div>
+</div>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="om-badge">ॐ</div>
+      <div class="brand-text">
+        <div class="name">GANARAJ TARUN MITRA MANDAL</div>
+        <div class="tag">GANESHOTSAV DONATION</div>
+      </div>
+    </div>
+    <a href="#donate" class="nav-cta">Donate Now</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-glow"></div>
+  <span class="eyebrow">🪔 Ganeshotsav Contribution</span>
+  <h1>Ganpati Bappa Morya</h1>
+  <span class="devnagari">गणराज तरुण मित्र मंडळ</span>
+  <p class="lede">Every year, your contribution helps us welcome Bappa with a beautiful decoration, daily aarti, prasad and cultural programs for the whole mandal. This year too, let's celebrate together.</p>
+  <div class="hero-actions">
+    <a href="#donate" class="btn-primary">🙏 Contribute Now</a>
+    <a href="#about" class="btn-ghost">Know More</a>
+  </div>
+  <div class="divider"><span class="line"></span><span style="color:var(--gold);font-size:18px;">✦</span><span class="line"></span></div>
+</div>
+
+<section id="about">
+  <div class="section-head">
+    <div class="kicker">Where your donation goes</div>
+    <h2>Seva for the Whole Community</h2>
+    <p>Ganaraj Tarun Mitra Mandal has been organising Ganeshotsav for our neighbourhood with devotion and joy. Here's what your contribution supports.</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🌸</div>
+      <h3>Mandap &amp; Decoration</h3>
+      <p>Flowers, lighting and a beautifully themed mandap for Bappa's darshan.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🪔</div>
+      <h3>Daily Aarti</h3>
+      <p>Morning and evening aarti samagri for all 10 days of the festival.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🎭</div>
+      <h3>Cultural Programs</h3>
+      <p>Community events, competitions and entertainment for every age group.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🍬</div>
+      <h3>Prasad &amp; Visarjan</h3>
+      <p>Modak prasad for devotees and a safe, well-organised immersion procession.</p>
+    </div>
+  </div>
+</section>
+
+<section id="donate">
+  <div class="section-head">
+    <div class="kicker">Support the Mandal</div>
+    <h2>Make Your Contribution</h2>
+    <p>Pick an amount or enter your own, then pay instantly using any UPI app. No sign-up, no fees — it goes directly to the mandal.</p>
+  </div>
+
+  <div class="donate-panel">
+    <div class="donate-single">
+      <h2>Donate via UPI</h2>
+      <div class="sub">100% secure &middot; goes directly to the mandal's account</div>
+
+      <div class="amount-label">Choose an amount (₹)</div>
+      <div class="amounts" id="amountChips">
+        <button class="chip" data-amt="101">₹101</button>
+        <button class="chip" data-amt="251">₹251</button>
+        <button class="chip" data-amt="501">₹501</button>
+        <button class="chip" data-amt="1100">₹1,100</button>
+        <button class="chip" data-amt="2100">₹2,100</button>
+      </div>
+
+      <div class="custom-amount">
+        <span>₹</span>
+        <input type="number" min="1" id="customAmt" placeholder="Enter custom amount">
+        <button id="applyCustom">Apply</button>
+      </div>
+
+      <div class="pay-buttons pay-buttons-centered">
+        <a href="#" id="gpayBtn" class="pay-btn pay-gpay">▶ Open in Google Pay</a>
+        <a href="#" id="upiBtn" class="pay-btn pay-upi">Open in any UPI App</a>
+      </div>
+
+      <div class="iphone-note">📱 <strong>iPhone doesn't support direct payment links.</strong> Set your amount above, then take a screenshot of the QR code below and scan it from your UPI app's gallery/upload option.</div>
+
+      <div class="qr-card qr-card-primary">
+        <div id="qrcode"></div>
+        <div class="upi-id-row">
+          <span id="upiIdText">7507885714@idbi</span>
+          <button id="copyUpiBtn">Copy</button>
+        </div>
+        <div class="qr-caption">Payee: GANARAJ TARUN MITRA MANDAL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="blessing">
+  <div class="om-large">ॐ</div>
+  <h3>Vakratunda Mahakaya, Suryakoti Samaprabha</h3>
+  <p>Ganpati Bappa Morya, Mangal Murti Morya 🙏</p>
+</div>
+
+<footer>
+  <strong>Ganaraj Tarun Mitra Mandal</strong><br>
+  Ganeshotsav Committee &middot; Made with devotion for our community<br>
+  For queries about your contribution, please contact a mandal committee member directly.
+</footer>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+  // Build marigold garland
+  const toranRow = document.getElementById('toranRow');
+  const count = window.innerWidth < 480 ? 10 : 18;
+  const marigoldSVG = `<svg viewBox="0 0 26 26" width="26" height="26"><circle cx="13" cy="13" r="11" fill="#E8871E"/><circle cx="13" cy="13" r="7.5" fill="#F5A623"/><circle cx="13" cy="13" r="3.5" fill="#C9A227"/></svg>`;
+  const leafSVG = `<svg viewBox="0 0 16 16" width="16" height="16"><path d="M8 0 C14 4 14 12 8 16 C2 12 2 4 8 0 Z" fill="#1F5C4A"/></svg>`;
+  for(let i=0;i<count;i++){
+    const wrap = document.createElement('div');
+    wrap.className = 'marigold';
+    wrap.innerHTML = (i % 4 === 0) ? leafSVG : marigoldSVG;
+    if(i % 4 === 0) wrap.classList.add('leaf');
+    toranRow.appendChild(wrap);
+  }
+
+  // Payment config
+  const PAYEE_VPA = "7507885714@idbi";
+  const PAYEE_NAME = "GANARAJ TARUN MITRA MANDAL";
+  const NOTE = "GANPATI BAPPA MORYA";
+
+  let selectedAmount = null;
+
+  // iOS Google Pay registers the "gpay://" scheme, NOT "tez://" — tez:// is
+  // Android-only. Detect the platform so the button uses whichever scheme
+  // the installed app actually listens for.
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const GPAY_SCHEME = isIOS ? 'gpay' : 'tez';
+
+  function buildLink(scheme, amount){
+    let url = `${scheme}://upi/pay?pa=${encodeURIComponent(PAYEE_VPA)}&pn=${encodeURIComponent(PAYEE_NAME)}&tn=${encodeURIComponent(NOTE)}&cu=INR`;
+    if(amount){ url += `&am=${encodeURIComponent(amount)}`; }
+    return url;
+  }
+
+  const gpayBtn = document.getElementById('gpayBtn');
+  const upiBtn = document.getElementById('upiBtn');
+  const qrDiv = document.getElementById('qrcode');
+  let qrInstance = null;
+
+  function renderQR(amount){
+    const link = buildLink('upi', amount);
+    qrDiv.innerHTML = '';
+    qrInstance = new QRCode(qrDiv, {
+      text: link,
+      width: 168,
+      height: 168,
+      colorDark: "#4A0F18",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.M
+    });
+  }
+
+  function updateLinks(){
+    gpayBtn.href = buildLink(GPAY_SCHEME, selectedAmount);
+    upiBtn.href = buildLink('upi', selectedAmount);
+    renderQR(selectedAmount);
+  }
+
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      selectedAmount = chip.dataset.amt;
+      document.getElementById('customAmt').value = '';
+      updateLinks();
+    });
+  });
+
+  document.getElementById('applyCustom').addEventListener('click', () => {
+    const val = document.getElementById('customAmt').value;
+    if(val && Number(val) > 0){
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      selectedAmount = val;
+      updateLinks();
+    }
+  });
+
+  document.getElementById('customAmt').addEventListener('keypress', (e) => {
+    if(e.key === 'Enter'){ document.getElementById('applyCustom').click(); }
+  });
+
+  const toast = document.getElementById('toast');
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 1800);
+  }
+
+  document.getElementById('copyUpiBtn').addEventListener('click', () => {
+    navigator.clipboard.writeText(PAYEE_VPA).then(() => showToast('UPI ID copied!'));
+  });
+
+  // init
+  updateLinks();
+</script>
+
+</body>
+</html>
