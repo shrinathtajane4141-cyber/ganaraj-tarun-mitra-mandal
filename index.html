@@ -4,11 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <title>Ganaraj Tarun Mitra Mandal | Ganpati Bappa Donation</title>
-  <meta property="og:title" content="गणराज तरुण मित्र मंडळ">
-<meta property="og:description" content="गणराज तरुण मित्र मंडळ - Official Website">
-<meta property="og:url" content="https://ganarajtarunmitramandal.in/">
+
+<!-- Standard SEO Tags -->
+<meta name="title" content="गणराज तरुण मित्र मंडळ | गणेशोत्सव देणगी">
+<meta name="description" content="गणराज तरुण मित्र मंडळ - अधिकृत गणेशोत्सव देणगी पोर्टल. Donate directly via UPI / Google Pay. गणपती बाप्पा मोरया!">
+
+<!-- WhatsApp, Facebook & Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://ganarajtarunmitramandal.in/images/preview.jpg">
+<meta property="og:url" content="https://ganarajtarunmitramandal.in/">
+<meta property="og:site_name" content="Ganaraj Tarun Mitra Mandal">
+<meta property="og:title" content="गणराज तरुण मित्र मंडळ | गणेशोत्सव देणगी">
+<meta property="og:description" content="गणराज तरुण मित्र मंडळ - अधिकृत गणेशोत्सव देणगी पोर्टल. Donate directly via UPI / Google Pay. गणपती बाप्पा मोरया!">
+<meta property="og:image" content="https://cdn.corenexis.com/f/rTFdalg1YgL.jpeg">
+<meta property="og:image:secure_url" content="https://cdn.corenexis.com/f/rTFdalg1YgL.jpeg">
+<meta property="og:image:type" content="image/jpeg">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="गणराज तरुण मित्र मंडळ | गणेशोत्सव देणगी">
+<meta name="twitter:description" content="गणराज तरुण मित्र मंडळ - Donate directly via UPI / Google Pay. गणपती बाप्पा मोरया!">
+<meta name="twitter:image" content="https://cdn.corenexis.com/f/rTFdalg1YgL.jpeg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -41,7 +57,6 @@
     *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
   }
 
-  /* subtle mandala watermark */
   .bg-mandala{
     position:fixed; inset:0; z-index:0; pointer-events:none;
     background-image: radial-gradient(circle at 12% 8%, rgba(232,135,30,0.10), transparent 40%),
@@ -49,7 +64,6 @@
                        radial-gradient(circle at 50% 95%, rgba(201,162,39,0.10), transparent 45%);
   }
 
-  /* ===== Marigold toran (garland) — signature element ===== */
   .toran{
     position:relative;
     height:64px;
@@ -76,7 +90,6 @@
   }
   .leaf{ width:16px; height:16px; margin-top:8px; opacity:0.9; animation: sway 3.4s ease-in-out infinite; transform-origin:top center;}
 
-  /* ===== Header ===== */
   header{
     position:sticky; top:0; z-index:40;
     background:linear-gradient(180deg, var(--maroon) 0%, #6d1c27 100%);
@@ -112,7 +125,6 @@
   }
   .nav-cta:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(232,135,30,0.55); }
 
-  /* ===== Hero ===== */
   .hero{
     position:relative; z-index:1;
     max-width:1080px; margin:0 auto;
@@ -169,14 +181,12 @@
   }
   .btn-ghost:hover{ background:var(--maroon); color:#fff6e6; }
 
-  /* ===== Modak/diya divider illustration ===== */
   .divider{
     display:flex; align-items:center; justify-content:center; gap:16px;
     margin:8px auto 0; opacity:0.85;
   }
   .divider .line{ height:1px; width:60px; background:linear-gradient(90deg, transparent, var(--gold), transparent); }
 
-  /* ===== Section shell ===== */
   section{ position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:64px 20px; }
   .section-head{ text-align:center; max-width:620px; margin:0 auto 40px; }
   .section-head .kicker{
@@ -189,7 +199,6 @@
   }
   .section-head p{ color:var(--ink-soft); font-size:15px; line-height:1.6; }
 
-  /* ===== Why donate cards ===== */
   .cards{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
   @media (max-width:900px){ .cards{ grid-template-columns:repeat(2,1fr);} }
   @media (max-width:520px){ .cards{ grid-template-columns:1fr;} }
@@ -208,7 +217,6 @@
   .card h3{ font-family:'Baloo 2',sans-serif; font-size:17px; color:var(--maroon-dark); margin:0 0 8px; }
   .card p{ font-size:13.5px; color:var(--ink-soft); line-height:1.55; margin:0; }
 
-  /* ===== Donate section ===== */
   .donate-panel{
     background:linear-gradient(160deg, var(--maroon) 0%, var(--maroon-dark) 100%);
     border-radius:28px; padding:44px 26px; color:#FFF3DE;
@@ -219,12 +227,6 @@
     content:""; position:absolute; top:-60px; right:-60px; width:220px; height:220px;
     background:radial-gradient(circle, rgba(232,135,30,0.35), transparent 70%);
   }
-  .donate-grid{
-    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
-    position:relative; z-index:1;
-  }
-  @media (max-width:800px){ .donate-grid{ grid-template-columns:1fr; } }
-
   .donate-panel h2{
     font-family:'Rozha One',serif; font-weight:400; font-size:clamp(24px,3.4vw,32px);
     margin:0 0 8px; color:#fff;
@@ -279,7 +281,6 @@
   .pay-gpay:hover{ transform:translateY(-2px); }
   .pay-upi{ background:transparent; color:#FFF3DE; border:2px solid rgba(255,255,255,0.4); }
   .pay-upi:hover{ border-color:var(--saffron); background:rgba(255,255,255,0.06); }
-  .pay-note{ font-size:12px; color:rgba(255,243,222,0.65); margin-top:4px; line-height:1.5; }
 
   .qr-card{
     background:#fff; border-radius:20px; padding:22px; text-align:center;
@@ -313,17 +314,6 @@
   }
   .qr-card-primary{ max-width:260px; margin:0 auto; }
 
-  /* ===== Trust strip ===== */
-  .trust{
-    display:flex; flex-wrap:wrap; justify-content:center; gap:28px;
-    margin-top:34px; padding-top:30px; border-top:1px dashed rgba(255,255,255,0.25);
-  }
-  .trust-item{ display:flex; align-items:center; gap:10px; font-size:13px; color:#FFE3B0; max-width:230px; }
-  .trust-item .dot{
-    width:8px; height:8px; border-radius:50%; background:var(--saffron); flex:0 0 auto;
-  }
-
-  /* ===== Blessing / footer ===== */
   .blessing{
     text-align:center; padding:70px 20px 30px;
   }
@@ -356,7 +346,6 @@
 
 <div class="bg-mandala"></div>
 
-<!-- Marigold toran -->
 <div class="toran" aria-hidden="true">
   <div class="toran-string"></div>
   <div class="toran-row" id="toranRow"></div>
@@ -479,7 +468,6 @@
 <div class="toast" id="toast">Copied!</div>
 
 <script>
-  // Build marigold garland
   const toranRow = document.getElementById('toranRow');
   const count = window.innerWidth < 480 ? 10 : 18;
   const marigoldSVG = `<svg viewBox="0 0 26 26" width="26" height="26"><circle cx="13" cy="13" r="11" fill="#E8871E"/><circle cx="13" cy="13" r="7.5" fill="#F5A623"/><circle cx="13" cy="13" r="3.5" fill="#C9A227"/></svg>`;
@@ -492,16 +480,12 @@
     toranRow.appendChild(wrap);
   }
 
-  // Payment config
   const PAYEE_VPA = "7507885714@idbi";
   const PAYEE_NAME = "GANARAJ TARUN MITRA MANDAL";
   const NOTE = "GANPATI BAPPA MORYA";
 
   let selectedAmount = null;
 
-  // iOS Google Pay registers the "gpay://" scheme, NOT "tez://" — tez:// is
-  // Android-only. Detect the platform so the button uses whichever scheme
-  // the installed app actually listens for.
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
                 (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const GPAY_SCHEME = isIOS ? 'gpay' : 'tez';
@@ -570,7 +554,6 @@
     navigator.clipboard.writeText(PAYEE_VPA).then(() => showToast('UPI ID copied!'));
   });
 
-  // init
   updateLinks();
 </script>
 
